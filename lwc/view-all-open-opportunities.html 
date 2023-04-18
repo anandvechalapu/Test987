@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>View All Open Opportunities</title>
+    <link href="https://cdn.jsdelivr.net/npm/@salesforce-ux/design-system@2.0.2/assets/styles/salesforce-lightning-design-system.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="slds-scope">
+      <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1">
+          <div class="slds-card">
+            <div class="slds-card__header slds-grid">
+              <h2 class="slds-text-heading_medium slds-truncate" title="View All Open Opportunities">View All Open Opportunities</h2>
+            </div>
+            <div class="slds-card__body">
+              <lightning-datatable
+                key-field="Id"
+                data={data}
+                columns={columns}
+                onrowaction={handleRowAction}
+                hide-checkbox-column
+                enable-infinite-loading
+                show-row-number-column
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const columns = [
+      { label: 'Opportunity Name', fieldName: 'Name' },
+      { label: 'Opportunity Owner', fieldName: 'OwnerName' },
+      { label: 'Stage', fieldName: 'StageName'},
+      { label: 'Amount', fieldName: 'Amount'},
+      { label: 'Closing Date', fieldName: 'CloseDate'}
+    ];
+
+    const handleRowAction = (event) => {
+      const actionName = event.detail.action.name;
+      const row = event.detail.row;
+      switch (actionName) {
+        case 'view':
+          console.log('View : ', row);
+          break;
+        case 'edit':
+          console.log('Edit : ', row);
+          break;
+        default:
+      }
+    };
+  </script>
+</html>
