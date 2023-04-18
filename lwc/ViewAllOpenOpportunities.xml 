@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>46.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>View All Open Opportunities</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <description>A component to view all open Opportunities</description>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
+            <property name="sortField" type="String" default="ClosingDate" label="Sort Field" description="The field used to sort the table"/>
+            <property name="sortDirection" type="String" default="ASC" label="Sort Direction" description="The direction to sort the table"/>
+            <property name="pageSize" type="Integer" default="10" label="Page Size" description="The number of records to display per page"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
